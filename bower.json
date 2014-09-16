@@ -1,0 +1,21 @@
+{
+  "name": "adapt-hotspot-menu",
+  "version": "0.0.0",
+  "homepage": "",
+  "authors": [
+  ],
+  "description": "A core bundled menu",
+  "main": "js/adapt-hotspot-menu.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-menu"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

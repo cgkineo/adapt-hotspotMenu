@@ -1,0 +1,2 @@
+adapt-hotspot-menu
+==================
