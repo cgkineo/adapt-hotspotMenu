@@ -1,15 +1,20 @@
-<a href="#" class="menu-item-hotspot {{#if _isVisited}}visited{{/if}} {{#if _isComplete}}complete{{/if}}" style="top:{{_hotspotMenuItem.position._top}}%; left:{{_hotspotMenuItem.position._left}}%" data-id="{{_id}}"></a>
-<div class="menu-item-inner{{#if _locked}} disabled{{/if}}" style="top:{{_hotspotMenuItem.position._top}}%; left:{{_hotspotMenuItem.position._left}}%">
+<a href="#" class="menu-item-hotspot {{#if _isVisited}}visited{{/if}} {{#if _isComplete}}complete{{/if}}" role="button" aria-label="{{#if _locked}}{{_hotspotMenuItem.itemAria.locked}}{{else}}{{_hotspotMenuItem.itemAria.default}}{{/if}}" style="top:{{_hotspotMenuItem.position._top}}%; left:{{_hotspotMenuItem.position._left}}%" data-id="{{_id}}" ><span class="sr-only">Menu Item {{#if _isVisited}}visited{{/if}} {{#if _isComplete}}complete{{/if}} {{#if _locked}}locked{{/if}} - n of n</span>
+</a>
+
+<div class="menu-item-inner{{#if _locked}} disabled{{/if}}"style="top:{{_hotspotMenuItem.position._top}}%; left:{{_hotspotMenuItem.position._left}}%">
 	<a href="#" class="menu-item-done icon icon-cross"></a>
 	<div class="menu-item-title">
 		<h5 class="menu-item-title-inner">{{{displayTitle}}}</h5>
 	</div>
 	<div class="menu-item-body">
+		{{#if _graphic}}
+		<img class="menu-item-body-image" src="{{_graphic.src}}" alt="{{_graphic.alt}}"/>
+		{{/if}}
 		<div class="menu-item-body-inner">{{{body}}}</div>
 	</div>
 	{{#if _assessment}}
-	<div>
-		<div>Assessment Info:</div>
+	<div class="menu-item-assessment">
+		<h6>Assessment Info</h6>
 		<div>Completion status: {{#if _assessment.isComplete}}Complete{{else}}Not Completed{{/if}} </div>
 		{{#if _assessment.hasScore}}
 			<div>Last Attempt Score: {{_assessment.scoreAsPercentage}}%</div>
@@ -17,7 +22,7 @@
 		<div>Passed status: {{#if _assessment.isPassed}}Passed{{else}}Not Passed{{/if}} </div>
 	</div>
 	{{/if}}
-	<div class="menu-item-button">
+	<div class="menu-item-button" role="button" aria-label="{{_hotspotMenuItem.itemAria.viewButton}}">
 		{{#unless _locked}}
 			<a href="#/id/{{_id}}" class="{{#if _isVisited}}visited{{/if}}">
 				{{{linkText}}}
