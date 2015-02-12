@@ -2,19 +2,18 @@
 </a>
 
 <div class="menu-item-inner{{#if _locked}} disabled{{/if}}"style="top:{{_hotspotMenuItem.position._top}}%; left:{{_hotspotMenuItem.position._left}}%">
-	<a href="#" class="menu-item-done icon icon-cross" role="button" aria-label="{{_accessibility._ariaLabels.close}}"></a>
 	<div class="menu-item-title">
-		<h5 class="menu-item-title-inner">{{{displayTitle}}}</h5>
+		<div class="menu-item-title-inner h5" role="heading" aria-level="2">{{{a11y_text displayTitle}}}</div>
 	</div>
 	<div class="menu-item-body">
 		{{#if _graphic}}
 		<img class="menu-item-body-image" src="{{_graphic.src}}" alt="{{_graphic.alt}}"/>
 		{{/if}}
-		<div class="menu-item-body-inner">{{{body}}}</div>
+		<div class="menu-item-body-inner">{{{a11y_text body}}}</div>
 	</div>
 	{{#if _assessment}}
 	<div class="menu-item-assessment">
-		<h6>Assessment Info</h6>
+		<div class="h6">Assessment Info</div>
 		<div>Completion status: {{#if _assessment.isComplete}}Complete{{else}}Not Completed{{/if}} </div>
 		{{#if _assessment.hasScore}}
 			<div>Last Attempt Score: {{_assessment.scoreAsPercentage}}%</div>
@@ -24,7 +23,7 @@
 	{{/if}}
 	<div class="menu-item-button" role="button" aria-label="{{_hotspotMenuItem.itemAria.viewButton}}">
 		{{#unless _locked}}
-			<a href="#/id/{{_id}}" class="{{#if _isVisited}}visited{{/if}}">
+			<a href="#/id/{{_id}}" class="{{#if _isVisited}}visited{{/if}}" role="button" aria-label="{{{linkText}}}">
 				{{{linkText}}}
 			</a>
 		{{/unless}}
@@ -35,4 +34,5 @@
 			<div class="menu-item-progress-indicator-bar" style="width:{{completedChildrenAsPercentage}}%"></div>
 		</div>
 	</div>
+	<a href="#" class="menu-item-done icon icon-cross" role="button" aria-label="{{_accessibility._ariaLabels.close}}"></a>
 </div>
