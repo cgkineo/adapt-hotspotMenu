@@ -35,16 +35,19 @@ define(function(require) {
             var $element = $(event.currentTarget);
             this.$(".menu-item-inner").addClass("show-item");
             Adapt.trigger("hotspotMenu:itemOpen", $element.attr("data-id"));
+            // popup opened - prevents tabbing outside whilst item is open
             Adapt.trigger('popup:opened',  this.$('.menu-item-inner'));
         },
 
         hideDetails: function(event) {
             if(event) event.preventDefault();
             this.$(".menu-item-inner").removeClass("show-item");
+            // popup closed - restores tabindexes
             Adapt.trigger('popup:closed',  this.$('.menu-item-inner'));
         },
 
-        onExitMenu : function(){             
+        onExitMenu : function(){  
+            // popup closed - restores tabindexes
             Adapt.trigger('popup:closed',  this.$('.menu-item-inner'));
         },
 
