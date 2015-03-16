@@ -8,7 +8,8 @@ define(function(require) {
 
         events: {
             "click .menu-item-hotspot":"showDetails",
-            "click .menu-item-done":"hideDetails"
+            "click .menu-item-done":"hideDetails",
+            "click .menu-item-button a" : "onExitMenu"
         },
 
         className: function() {
@@ -34,17 +35,17 @@ define(function(require) {
             var $element = $(event.currentTarget);
             this.$(".menu-item-inner").addClass("show-item");
             Adapt.trigger("hotspotMenu:itemOpen", $element.attr("data-id"));
-            // tab index setup - prevents tabbing outside whilst item is open
-            $('a').attr('tabindex', -1);
-            $('.menu-item-inner').find('a').attr('tabindex', 1).focus();
+            Adapt.trigger('popup:opened',  this.$('.menu-item-inner'));
         },
 
         hideDetails: function(event) {
             if(event) event.preventDefault();
             this.$(".menu-item-inner").removeClass("show-item");
-            // reset tab index when item is hidden
-            $('a').attr('tabindex', 0);
-            $('.menu-item-inner').find('a').attr('tabindex', 0);
+            Adapt.trigger('popup:closed',  this.$('.menu-item-inner'));
+        },
+
+        onExitMenu : function(){             
+            Adapt.trigger('popup:closed',  this.$('.menu-item-inner'));
         },
 
         checkIfShouldClose: function(id) {

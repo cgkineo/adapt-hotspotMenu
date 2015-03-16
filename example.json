@@ -45,11 +45,6 @@
         "position": {
             "_top":50,
             "_left":50
-        },
-        "itemAria": {
-            "default": "Select here to view item.",
-            "locked": "Item locked.",
-            "viewButton": "Select here to enter."
         }
     }
 }

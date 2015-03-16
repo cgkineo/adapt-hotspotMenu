@@ -1,4 +1,4 @@
-<a href="#" class="menu-item-hotspot {{#if _isVisited}}visited{{/if}} {{#if _isComplete}}complete{{/if}}" role="button" aria-label="{{#if _locked}}{{_hotspotMenuItem.itemAria.locked}}{{else}}{{_hotspotMenuItem.itemAria.default}}{{/if}}" style="top:{{_hotspotMenuItem.position._top}}%; left:{{_hotspotMenuItem.position._left}}%" data-id="{{_id}}" ><span class="sr-only">Menu Item {{#if _isVisited}}visited{{/if}} {{#if _isComplete}}complete{{/if}} {{#if _locked}}locked{{/if}} - n of n</span>
+<a href="#" class="menu-item-hotspot {{#if _isVisited}}visited{{/if}} {{#if _isComplete}}complete{{/if}}" role="button" aria-label="{{{displayTitle}}}{{#if _locked}} locked{{/if}} {{#if _isVisited}} visited {{/if}} {{#if _isComplete}}complete{{else}}incomplete{{/if}}" style="top:{{_hotspotMenuItem.position._top}}%; left:{{_hotspotMenuItem.position._left}}%" data-id="{{_id}}" ><span class="sr-only">Menu Item {{#if _isVisited}}visited{{/if}} {{#if _isComplete}}complete{{/if}} {{#if _locked}}locked{{/if}} - n of n</span>
 </a>
 
 <div class="menu-item-inner{{#if _locked}} disabled{{/if}}"style="top:{{_hotspotMenuItem.position._top}}%; left:{{_hotspotMenuItem.position._left}}%">
@@ -27,7 +27,7 @@
 				{{{linkText}}}
 			</a>
 		{{/unless}}
-		<span class="menu-item-duration">Duration: {{{duration}}}</span>
+		<span class="menu-item-duration">Duration: {{{a11y_text duration}}}</span>
 	</div>
 	<div class="menu-item-progress">
 		<div class="menu-item-progress-indicator">
