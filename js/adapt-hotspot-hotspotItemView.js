@@ -15,18 +15,19 @@ define(function(require) {
             return [
                 'menu-item',
                 'menu-item-' + this.model.get('_id') ,
-                'nth-child-' + this.options.nthChild,
-                this.options.nthChild % 2 === 0  ? 'nth-child-even' : 'nth-child-odd'
+                // 'nth-child-' + this.options.nthChild,
+                // this.options.nthChild % 2 === 0  ? 'nth-child-even' : 'nth-child-odd'
             ].join(' ');
         },
 
         preRender: function() {
-            this.model.getCompleteComponentsAsPercentage();
+            //this.model.getCompleteComponentsAsPercentage();
             this.listenTo(Adapt, "hotspotMenu:itemOpen", this.checkIfShouldClose);
         },
 
         postRender: function() {
             this.setReadyStatus();
+            this.$el.addClass("hotspot-menu");
         },
 
         showDetails: function(event) {
