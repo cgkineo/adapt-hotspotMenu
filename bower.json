@@ -1,21 +1,17 @@
 {
-  "name": "adapt-hotspot-menu",
-  "version": "0.0.0",
-  "homepage": "",
-  "authors": [
-  ],
-  "description": "A core bundled menu",
-  "main": "js/adapt-hotspot-menu.js",
-  "keywords": [
-    "adapt-plugin",
-    "adapt-menu"
-  ],
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ]
+    "name": "adapt-hotspot-menu",
+    "repository": "git://github.com/cgkineo/adapt-hotspot-menu",
+    "framework": "^2.0.0",
+    "version": "2.0.0",
+    "homepage": "https://github.com/cgkineo/adapt-hotspot-menu",
+    "issues": "https://github.com/cgkineo/adapt-hotspot-menu/issues/",
+    "displayName": "Hotspot Menu",
+    "menu": "hotspot-menu",
+    "description": "A hotspot menu",
+    "main": "/js/adapt-hotspot-menu.js",
+    "keywords": [
+        "adapt-plugin",
+        "adapt-menu"
+    ],
+    "license": "GPLv3"
 }
