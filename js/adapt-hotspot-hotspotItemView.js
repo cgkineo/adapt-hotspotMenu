@@ -27,7 +27,6 @@ define(function(require) {
 
         postRender: function() {
             this.setReadyStatus();
-            this.$el.addClass("hotspot-menu");
         },
 
         showDetails: function(event) {
