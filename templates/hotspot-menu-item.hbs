@@ -1,9 +1,7 @@
-<a href="#" class="menu-item-hotspot {{#if _isVisited}}visited{{/if}} {{#if _isComplete}}complete{{/if}}" style="top:{{_hotspotMenuItem.position._top}}%; left:{{_hotspotMenuItem.position._left}}%" data-id="{{_id}}"></a>
-<div class="menu-item-inner{{#if _locked}} disabled{{/if}}" style="top:{{_hotspotMenuItem.position._top}}%; left:{{_hotspotMenuItem.position._left}}%">
+<button class="menu-item-hotspot{{#if _isVisited}} visited{{/if}}{{#if _isComplete}} complete{{/if}}{{#if _isLocked}} locked icon icon-padlock-locked{{/if}}" style="top:{{_hotspotMenuItem.position._top}}%; left:{{_hotspotMenuItem.position._left}}%" data-id="{{_id}}" aria-label="" role="button"></button>
+<div class="menu-item-inner{{#if _isLocked}} disabled{{/if}}{{#if _offsetPopupFromHotspot}} is-offset{{/if}}" {{#if _offsetPopupFromHotspot}}style="top:{{_hotspotMenuItem.position._top}}%; left:{{_hotspotMenuItem.position._left}}%"{{/if}}>
 	<a href="#" class="menu-item-done icon icon-cross"></a>
-	<div class="menu-item-title">
-		<h5 class="menu-item-title-inner">{{{displayTitle}}}</h5>
-	</div>
+	<div class="menu-item-title">{{{displayTitle}}}</div>
 	<div class="menu-item-body">
 		<div class="menu-item-body-inner">{{{body}}}</div>
 	</div>
@@ -18,10 +16,11 @@
 	</div>
 	{{/if}}
 	<div class="menu-item-button">
-		{{#unless _locked}}
+		{{#unless _isLocked}}
 			<a href="#/id/{{_id}}" class="{{#if _isVisited}}visited{{/if}}">
 				{{{linkText}}}
 			</a>
+			<button data-id="{{_id}}" aria=""></button>
 		{{/unless}}
 		<span class="menu-item-duration">Duration: {{{duration}}}</span>
 	</div>
