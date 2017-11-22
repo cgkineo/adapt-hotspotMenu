@@ -1,9 +1,9 @@
-@hotspot-menu-hotspot-size: 50px;
 @hotspot-popup-width: 500px;
+@hotspot-menu-pin-size: 50px;
+@hotspot-menu-pin-border: 3px solid @primary-color-inverted;
 
-.hotspot-menu {
-	
-	background: @hotspot-menu-background-color;
+.hotspot-menu {	
+	background: @primary-color;
 
 	.menu-container {
 		background-size: cover;
@@ -21,7 +21,7 @@
 	}
 
 	.menu-title, .menu-body {
-		color: @menu-title-color;
+		color: @primary-color-inverted;
 		margin-bottom: @menu-title-padding-bottom;
 	}
 
@@ -74,12 +74,12 @@
 	.menu-item-hotspot {
 		position: absolute;
 		display: block;
-		width: @hotspot-menu-hotspot-size;
-		height: @hotspot-menu-hotspot-size;
+		width: @hotspot-menu-pin-size;
+		height: @hotspot-menu-pin-size;
 		border-radius: 50%;
-		background-color:@secondary-color;
-		border: 3px solid #fff;
-		color: @menu-item-locked;
+		color: @tertiary-color;
+		background-color: @secondary-color;
+		border: @hotspot-menu-pin-border;
 
 		&:before {
 			position: absolute;
@@ -127,34 +127,34 @@
 
 			&.offset-right {
 				transform: none;
-				margin-left: @hotspot-menu-hotspot-size + @item-padding;
+				margin-left: @hotspot-menu-pin-size + @item-padding;
 			}
 		}
 	}
 
 	.menu-item-done {
 		color: @primary-color;
-		float:right;
+		float: right;
 		padding:10px 10px 0 0;
 		background-color: transparent;
 		min-height: auto;
 		.no-touch & {
 			&:hover {
-				color:@secondary-color;
+				color: @secondary-color;
 			}
 		}
 		@media all and (max-width:899px) {
-			display:none;
+			display: none;
 		}
 	}
 
 	.menu-item-title {
 		padding: @menu-body-padding;
 		@media all and (min-width: @device-width-medium) {
-			min-height: (@menu-item-title-font-size * @menu-item-title-line-height) * 3; // Up to 3 lines
+			min-height: (@menu-title-font-size * @title-line-height) * 3; // Up to 3 lines
 		}
 		@media all and (min-width: @device-width-large) {
-			min-height: (@menu-item-title-font-size * @menu-item-title-line-height) * 2; // Up to 3 lines
+			min-height: (@menu-title-font-size * @title-line-height) * 2; // Up to 2 lines
 		}
 	}
 
