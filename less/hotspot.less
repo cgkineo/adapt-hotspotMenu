@@ -1,15 +1,14 @@
-@hotspot-size: 50px;
+@hotspot-menu-hotspot-size: 50px;
+@hotspot-popup-width: 500px;
 
 .hotspot-menu {
 	
-	// :not(.is-full-bg){
-		background: @hotspot-menu-background-color;
-	// }
+	background: @hotspot-menu-background-color;
 
 	.menu-container {
 		background-size: cover;
 		&-inner {
-			padding: 20px;
+			padding: @item-padding;
 			@media all and (min-width: @device-width-large) {
 				width: @device-width-large;
 				margin: auto;
@@ -25,8 +24,6 @@
 		color: @menu-title-color;
 		margin-bottom: @menu-title-padding-bottom;
 	}
-
-	.hotspot-container {}
 
 	.hotspot-container-inner {
 		position: relative;
@@ -48,8 +45,8 @@
 
 	.hotspot-items {
 		position: static;
-		margin-top: 20px;
-		margin-left: -20px;
+		margin-top: @item-padding;
+		margin-left: -@item-padding;
 
 		@media all and (min-width: @device-width-large) {
 			position: absolute;
@@ -65,19 +62,32 @@
 		box-sizing: border-box;
 		width: 50%;
 		float: left;
-		padding-left: 20px;
-		margin-bottom: 20px;
+		padding-left: @item-padding;
+		margin-bottom: @item-padding;
+		
+		@media all and (min-width: @device-width-large) {
+			width: 100%;
+		}
+
 	}
 
 	.menu-item-hotspot {
 		position: absolute;
 		display: block;
-		width: @hotspot-size;
-		height: @hotspot-size;
+		width: @hotspot-menu-hotspot-size;
+		height: @hotspot-menu-hotspot-size;
 		border-radius: 50%;
 		background-color:@secondary-color;
 		border: 3px solid #fff;
-		
+		color: @menu-item-locked;
+
+		&:before {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
 		.no-touch & {
 			&:hover {
 				background-color: @primary-color;
@@ -85,15 +95,7 @@
 		}
 
 		&.locked {
-			color: @menu-item-locked;
 			background-color: lighten(@secondary-color, 20%);
-
-			&:before {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-			}
 		}
 
 		@media all and (max-width: (@device-width-large - 1)) {
@@ -102,38 +104,40 @@
 	}
 
 	.menu-item-inner {
-		padding-bottom: 20px;
+		padding-bottom: @item-padding;
 		background: @menu-popup-background-color;
 		z-index: 1;
 
 		&.show-item {
-			display:block;
+			display: block;
 		}
 		
 		@media all and (min-width: @device-width-large) {
-			&.is-offset {
-				transform: none;
-				margin-left: @hotspot-size + 20px;
-			}
-
 			display: none;
 			position: absolute;
-			width: 500px;
+			width: @hotspot-popup-width;
 			left: 50%;
 			top: 50%;
 			transform: translate(-50%, -50%);
+
+			&.offset-left {
+				transform: none;
+				margin-left: -(@hotspot-popup-width + @item-padding);
+			}
+
+			&.offset-right {
+				transform: none;
+				margin-left: @hotspot-menu-hotspot-size + @item-padding;
+			}
 		}
 	}
-
-	// .menu-item-inner.disabled {
-	// 	cursor: not-allowed;
-	// 	opacity: .5;
-	// }
 
 	.menu-item-done {
 		color: @primary-color;
 		float:right;
 		padding:10px 10px 0 0;
+		background-color: transparent;
+		min-height: auto;
 		.no-touch & {
 			&:hover {
 				color:@secondary-color;
@@ -158,8 +162,9 @@
 		padding: @menu-body-padding;
 	}
 
-	.menu-item-button {
+	.menu-item-controls {
 		padding: @menu-body-padding;
+		min-height: 55px;
 		a {
 			text-decoration: none;
 			background-color: @button-color;
@@ -201,7 +206,7 @@
 
 		.menu-item{
 			width:100%;
-			margin-bottom:20px;
+			margin-bottom:@item-padding;
 
 			.menu-item-inner{
 				margin:0;
