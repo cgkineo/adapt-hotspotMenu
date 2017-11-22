@@ -1,6 +1,6 @@
-<button class="menu-item-hotspot{{#if _isVisited}} visited{{/if}}{{#if _isComplete}} complete{{/if}}{{#if _isLocked}} locked icon icon-padlock-locked{{/if}}" style="top:{{_hotspotMenuItem.position._top}}%; left:{{_hotspotMenuItem.position._left}}%" data-id="{{_id}}" aria-label="" role="button"></button>
-<div class="menu-item-inner{{#if _isLocked}} disabled{{/if}}{{#if _offsetPopupFromHotspot}} is-offset{{/if}}" {{#if _offsetPopupFromHotspot}}style="top:{{_hotspotMenuItem.position._top}}%; left:{{_hotspotMenuItem.position._left}}%"{{/if}}>
-	<a href="#" class="menu-item-done icon icon-cross"></a>
+<button class="menu-item-hotspot{{#if _isVisited}} visited{{/if}}{{#if _isComplete}} complete icon-tick{{/if}}{{#if _isLocked}} locked icon-padlock-locked{{/if}} icon" style="top:{{_hotspotMenuItem.position._top}}%; left:{{_hotspotMenuItem.position._left}}%" data-id="{{_id}}" aria-label="" role="button"></button>
+<div class="menu-item-inner{{#if _isLocked}} disabled{{/if}}{{#if _popupPosition}} offset-{{_popupPosition}}{{/if}}" {{#if _popupPosition}}style="top:{{_hotspotMenuItem.position._top}}%; left:{{_hotspotMenuItem.position._left}}%"{{/if}}>
+	<button class="menu-item-done icon icon-cross" aria-label=""></button>
 	<div class="menu-item-title">{{{displayTitle}}}</div>
 	<div class="menu-item-body">
 		<div class="menu-item-body-inner">{{{body}}}</div>
@@ -15,18 +15,12 @@
 		<div>Passed status: {{#if _assessment.isPassed}}Passed{{else}}Not Passed{{/if}} </div>
 	</div>
 	{{/if}}
-	<div class="menu-item-button">
+	<div class="menu-item-controls">
 		{{#unless _isLocked}}
-			<a href="#/id/{{_id}}" class="{{#if _isVisited}}visited{{/if}}">
-				{{{linkText}}}
-			</a>
-			<button data-id="{{_id}}" aria=""></button>
+		<button class="menu-item-button {{#if _isVisited}}visited{{/if}}" data-id="{{_id}}" aria-label="">
+			{{{linkText}}}
+		</button>
 		{{/unless}}
 		<span class="menu-item-duration">Duration: {{{duration}}}</span>
 	</div>
-{{!-- 	<div class="menu-item-progress">
-		<div class="menu-item-progress-indicator">
-			<div class="menu-item-progress-indicator-bar" style="width:{{completedChildrenAsPercentage}}%"></div>
-		</div>
-	</div> --}}
 </div>
