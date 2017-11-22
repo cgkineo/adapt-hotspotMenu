@@ -8,7 +8,8 @@ define(function(require) {
 
         events: {
             "click .menu-item-hotspot":"showDetails",
-            "click .menu-item-done":"hideDetails"
+            "click .menu-item-done":"hideDetails",
+            "click .menu-item-button":"onClickMenuItemButton"
         },
 
         className: function() {
@@ -45,7 +46,14 @@ define(function(require) {
             if(this.model.get("_id") != id) {
                 this.hideDetails();
             }
-        }
+        },
+
+        onClickMenuItemButton: function() {
+            if(event) event.preventDefault();
+            if(this.model.get('_isLocked')) return;
+            Backbone.history.navigate('#/id/' + this.model.get('_id'), {trigger: true});
+        },
+
 
     }, {
         template:'hotspot-menu-item'
