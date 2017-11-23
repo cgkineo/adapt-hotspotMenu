@@ -1,4 +1,5 @@
 @hotspot-popup-width: 500px;
+@hotspot-trans-speed: .2s;
 @hotspot-menu-pin-size: 50px;
 @hotspot-menu-pin-border: 3px solid @primary-color-inverted;
 
@@ -107,11 +108,12 @@
 		padding-bottom: @item-padding;
 		background: @menu-popup-background-color;
 		z-index: 1;
+		box-shadow: 0 0 6px rgba(0,0,0,0.1);
 
 		&.show-item {
 			display: block;
 		}
-		
+
 		@media all and (min-width: @device-width-large) {
 			display: none;
 			position: absolute;
@@ -120,13 +122,28 @@
 			top: 50%;
 			transform: translate(-50%, -50%);
 
-			&.offset-left {
+			&.is-animated {
+				display: block;
+				transition: opacity @hotspot-trans-speed, visibility @hotspot-trans-speed;
+				opacity: 0;
+				visibility: hidden;
+
+				&.show-item {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+			
+			&.offset-left,
+			&.offset-right {
 				transform: none;
+			}
+
+			&.offset-left {
 				margin-left: -(@hotspot-popup-width + @item-padding);
 			}
 
 			&.offset-right {
-				transform: none;
 				margin-left: @hotspot-menu-pin-size + @item-padding;
 			}
 		}
@@ -138,14 +155,19 @@
 		padding:10px 10px 0 0;
 		background-color: transparent;
 		min-height: auto;
+		display: none;
+
 		.no-touch & {
 			&:hover {
 				color: @secondary-color;
+				background-color: @primary-color-inverted;
 			}
 		}
-		@media all and (max-width:899px) {
-			display: none;
+
+		@media all and (min-width: @device-width-medium) {
+			display: block;										 
 		}
+
 	}
 
 	.menu-item-title {
