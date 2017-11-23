@@ -1,5 +1,5 @@
 <button class="menu-item-hotspot{{#if _isVisited}} visited{{/if}}{{#if _isComplete}} complete icon-tick{{/if}}{{#if _isLocked}} locked icon-padlock-locked{{/if}} icon" style="top:{{_hotspotMenuItem.position._top}}%; left:{{_hotspotMenuItem.position._left}}%" data-id="{{_id}}" aria-label="" role="button"></button>
-<div class="menu-item-inner{{#if _isLocked}} disabled{{/if}}{{#if _popupPosition}} offset-{{_popupPosition}}{{/if}}" {{#if _popupPosition}}style="top:{{_hotspotMenuItem.position._top}}%; left:{{_hotspotMenuItem.position._left}}%"{{/if}}>
+<div class="menu-item-inner{{#if _isLocked}} disabled{{/if}}{{#if _popupPosition}} offset-{{_popupPosition}}{{/if}}{{#if _animatedPopup}} is-animated"{{/if}}" {{#if _popupPosition}}style="top:{{_hotspotMenuItem.position._top}}%; left:{{_hotspotMenuItem.position._left}}%"{{/if}}>
 	<button class="menu-item-done icon icon-cross" aria-label=""></button>
 	<div class="menu-item-title">{{{displayTitle}}}</div>
 	<div class="menu-item-body">
