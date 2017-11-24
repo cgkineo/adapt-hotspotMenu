@@ -1,4 +1,4 @@
-<div class="menu-container" {{#if _fullWidthBackground}}style="background-image: url({{_hotspotMenuGraphic.src}});"{{/if}}>
+<div class="menu-container" {{#if _hotSpotMenu._fullWidthBackground}}style="background-image: url({{_hotSpotMenu._hotSpotMenuGraphic.src}});"{{/if}}>
 	<div class='menu-container-inner box-menu-inner clearfix'>
 		{{#if title}}
 		<div class="menu-title">{{{title}}}</div>
@@ -12,7 +12,7 @@
 		{{/if}}
 		<div class="hotspot-container">
 			<div class="hotspot-container-inner">
-				<img class="hotspot-container-image{{#if _fullWidthBackground}} is-full-bg{{/if}}" src="{{_hotspotMenuGraphic.src}}" alt="{{_hotspotMenuGraphic.alt}}" />
+				<img class="hotspot-container-image{{#if _hotSpotMenu._fullWidthBackground}} is-full-bg{{/if}}" src="{{_hotSpotMenu._hotSpotMenuGraphic.src}}" alt="{{_hotSpotMenu._hotSpotMenuGraphic.alt}}" />
 				<div class="hotspot-items clearfix"></div>
 			</div>
 		</div>
