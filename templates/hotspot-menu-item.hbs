@@ -1,16 +1,16 @@
-<button class="menu-item-hotspot{{#if _isVisited}} visited{{/if}}{{#if _isComplete}} complete icon-tick{{/if}}{{#if _isLocked}} locked icon-padlock-locked{{/if}} icon" style="top:{{_hotSpotMenuItem.position._top}}%; left:{{_hotSpotMenuItem.position._left}}%" data-id="{{_id}}" aria-label="" role="button"></button>
-<div class="menu-item-inner{{#if _isLocked}} disabled{{/if}}{{#if _hotSpotMenuItem._popupPosition}} offset-{{_hotSpotMenuItem._popupPosition}}{{/if}}{{#if _hotSpotMenuItem._animatedPopup}} is-animated"{{/if}}" {{#if _hotSpotMenuItem._popupPosition}}style="top:{{_hotSpotMenuItem.position._top}}%; left:{{_hotSpotMenuItem.position._left}}%"{{/if}}>
-	<button class="menu-item-done icon icon-cross" aria-label=""></button>
-	<div class="menu-item-title">{{{displayTitle}}}</div>
-	<div class="menu-item-body">
-		<div class="menu-item-body-inner">{{{body}}}</div>
+<button class="hotspot-menu-item-button{{#if _isVisited}} visited{{/if}}{{#if _isComplete}} complete icon-tick{{/if}}{{#if _isLocked}} locked icon-padlock-locked{{/if}} icon" style="top:{{_hotSpotMenuItem._position._top}}%; left:{{_hotSpotMenuItem._position._left}}%" data-id="{{_id}}" aria-label="" role="button"></button>
+<div class="hotspot-menu-item-inner{{#if _isLocked}} disabled{{/if}}{{#if _hotSpotMenuItem._popupPosition}} offset-{{_hotSpotMenuItem._popupPosition}}{{/if}}{{#if _hotSpotMenuItem._animatedPopup}} is-animated{{/if}}" {{#if _hotSpotMenuItem._popupPosition}}style="top:{{_hotSpotMenuItem._position._top}}%; left:{{_hotSpotMenuItem._position._left}}%"{{/if}}>
+	<button class="hotspot-menu-item-done icon icon-cross" aria-label=""></button>
+	<div class="hotspot-menu-item-title">{{{displayTitle}}}</div>
+	<div class="hotspot-menu-item-body">
+		<div class="hotspot-menu-item-body-inner">{{{body}}}</div>
 	</div>
-	<div class="menu-item-controls">
+	<div class="hotspot-menu-item-controls">
 		{{#unless _isLocked}}
-		<button class="menu-item-button {{#if _isVisited}}visited{{/if}}" data-id="{{_id}}" aria-label="">
+		<button class="hotspot-menu-item-action {{#if _isVisited}}visited{{/if}}" data-id="{{_id}}" aria-label="">
 			{{{linkText}}}
 		</button>
 		{{/unless}}
-		<span class="menu-item-duration">Duration: {{{duration}}}</span>
+		<span class="hotspot-menu-item-duration">Duration: {{{duration}}}</span>
 	</div>
 </div>
