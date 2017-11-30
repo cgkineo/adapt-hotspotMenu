@@ -101,7 +101,7 @@
                     "_left": {
                       "type": "number",
                       "required": false,
-                      "default": "0",
+                      "default": "",
                       "title": "Pin Position - Left",
                       "inputType": "Number",
                       "validators": ["number"],
@@ -110,7 +110,7 @@
                     "_top": {
                       "type": "number",
                       "required": false,
-                      "default": "0",
+                      "default": "",
                       "title": "Pin Position - Top",
                       "inputType": "Number",
                       "validators": ["number"],
@@ -125,7 +125,7 @@
                   "inputType": {
                     "type": "Select",
                     "options": [
-                      "default",
+                      "",
                       "left",
                       "right"
                     ]
