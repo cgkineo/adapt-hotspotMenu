@@ -7,15 +7,15 @@ define(function(require) {
     var HotspotItemView = MenuView.extend({
 
         events: {
-            "click .menu-item-hotspot":"showDetails",
-            "click .menu-item-done":"hideDetails",
-            "click .menu-item-button":"onClickMenuItemButton"
+            "click .hotspot-menu-item-button":"showDetails",
+            "click .hotspot-menu-item-done":"hideDetails",
+            "click .hotspot-menu-item-action":"onClickMenuItemButton"
         },
 
         className: function() {
             return [
-                'menu-item',
-                'menu-item-' + this.model.get('_id') ,
+                'hotspot-menu-item',
+                'hotspot-menu-item-' + this.model.get('_id') ,
                 // 'nth-child-' + this.options.nthChild,
                 // this.options.nthChild % 2 === 0  ? 'nth-child-even' : 'nth-child-odd'
             ].join(' ');
@@ -33,13 +33,13 @@ define(function(require) {
         showDetails: function(event) {
             if(event) event.preventDefault();
             var $element = $(event.currentTarget);
-            this.$(".menu-item-inner").addClass("show-item");
+            this.$(".hotspot-menu-item-inner").addClass("show-item");
             Adapt.trigger("hotspotMenu:itemOpen", $element.attr("data-id"));
         },
 
         hideDetails: function(event) {
             if(event) event.preventDefault();
-            this.$(".menu-item-inner").removeClass("show-item");
+            this.$(".hotspot-menu-item-inner").removeClass("show-item");
         },
 
         checkIfShouldClose: function(id) {
