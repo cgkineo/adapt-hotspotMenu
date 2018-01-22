@@ -5,7 +5,7 @@ The hotspot menu consists of menu items contained within hotspots which are posi
 
 For mobile view by default this menu displays as the core box menu.
 
-####Example JSON
+#### Example JSON
 Configuration options are explained below.​ The "_hotspotMenuGraphic"  ​​should be set on the parent menu content object. 
 
 ````
@@ -61,7 +61,7 @@ The "_hotspotMenuItem" should be set on the child​ content objects.
 }
 ````
 
-####Config options
+#### Config options
 
 Background Graphic
 This provides the image src for the menu background image in which the hotspots are positioned to sit ontop of.
