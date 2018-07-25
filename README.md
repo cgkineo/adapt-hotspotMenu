@@ -2,6 +2,8 @@
 
 A menu with absolutely-positioned buttons.
 
+![](https://user-images.githubusercontent.com/922987/43205041-51a6517c-901a-11e8-976d-c7677c000db4.jpg)
+
 ## Installation
 
 * Add the [example JSON](example.json) to `contentobjects.json` to position the menu items.
