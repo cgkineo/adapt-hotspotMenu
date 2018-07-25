@@ -1,86 +1,59 @@
-adapt-hotspot-menu
-==================
+# Hotspot Menu
 
-The hotspot menu consists of menu items contained within hotspots which are positioned on a image. When hotspots are selected menu item details are openened within a popup.
+A menu with absolutely-positioned buttons.
 
-For mobile view by default this menu displays as the core box menu.
+## Installation
 
-#### Example JSON
-Configuration options are explained below.​ The "_hotspotMenuGraphic"  ​​should be set on the parent menu content object. 
-
-````
-{
-    "_id":"co-30",
-    "_parentId":"co-10",
-    "_type":"menu",
-    "_classes":"",
-    "title":"Hotspot Menu",
-    "displayTitle":"Hotspot Menu",
-    "body":"Page description text.",
-    "_graphic": {
-        "alt": "alt text",
-        "src": "course/en/images/hotgraphic.png"
-    },
-    "linkText":"View",
-    "duration":"2 mins",
-    "_hotspotMenuGraphic": {
-        "alt": "alt text",
-        "src": "course/en/images/hotgraphic.png"
-    }
+* Add the [example JSON](example.json) to `contentobjects.json` to position the menu items.
+* Specify a background image for the menu by adding the following to `course.json`:
+```json
+"_hotspotMenu": {
+	"_backgroundSrc": ""
 }
-````
+```
+* With [Adapt CLI](https://github.com/adaptlearning/adapt-cli) installed, run `adapt install hotspotMenu`. Alternatively, download the ZIP and extract into the src > menu directory.
+* Run an appropriate Grunt task.
 
-The "_hotspotMenuItem" should be set on the child​ content objects.
+## Attributes
 
-````
-{
-    "_id":"co-60",
-    "_parentId":"co-30",
-    "_type":"page",
-    "_classes":"",
-    "title":"Welcome to Adapt Learning",
-    "displayTitle":"Welcome to Adapt Learning",
-    "body":"Page description text.",
-    "_lock" : [
-        "co-05",
-        "co-15",
-        "co-20"
-    ],
-    "_graphic": {
-        "alt": "alt text",
-        "src": "course/en/images/origami-menu-one.jpg"
-    },
-    "linkText":"View",
-    "duration":"2 mins",
-    "_hotspotMenuItem": {
-        "position": {
-            "_top":50,
-            "_left":50
-        }
-    }
-}
-````
+### Course
 
-#### Config options
+<table>
+	<tr>
+		<th>Attribute<br></th>
+		<th>Type</th>
+		<th>Description</th>
+		<th>Default</th>
+	</tr>
+	<tr>
+		<td><code>_backgroundSrc</code></td>
+		<td>String</td>
+		<td>Background graphic</td>
+		<td><code>""</code></td>
+	</tr>
+</table>
 
-Background Graphic
-This provides the image src for the menu background image in which the hotspots are positioned to sit ontop of.
+### Content object
 
-````
-"_hotspotMenuGraphic": {
-    "alt": "alt text",
-    "src": "course/en/images/hotgraphic.png"
-}
-````
+Hotspot Menu inherits Adapt’s standard [content object](https://github.com/adaptlearning/adapt_framework/wiki/Creating-your-first-course#contentobjectsjson) attributes with the following additions:
 
-Hotspot Menu Item Position
-This sets the top and left position of the menu item relative to its container. Positons are set as percentages.
-
-````
-"_hotspotMenuItem": {
-    "position": {
-        "_top":50,
-        "_left":50
-    }
-}
-````
+<table>
+	<tr>
+		<th>Attribute<br></th>
+		<th>Type</th>
+		<th>Description</th>
+		<th>Default</th>
+	</tr>
+	<tr>
+		<td><code>_top</code></td>
+		<td>Number</td>
+		<td>Vertical position as a percentage</td>
+		<td><code>0</code></td>
+	</tr>
+	<tr>
+		<td><code>_left</code></td>
+		<td>Number</td>
+		<td>Horizontal position as a percentage</td>
+		<td><code>0</code></td>
+	</tr>
+</table>
