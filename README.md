@@ -6,7 +6,7 @@ A menu with absolutely-positioned buttons.
 
 ## Installation
 
-* Add the [example JSON](example.json) to `contentobjects.json` to position the menu items.
+* Add the [example JSON](example.json) to `contentObjects.json` to position the menu items.
 * Specify a background image for the menu by adding the following to `course.json`:
 ```json
 "_hotspotMenu": {
