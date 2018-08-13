@@ -29,12 +29,9 @@ define([ "core/js/views/adaptView", "core/js/adapt" ], function(AdaptView, Adapt
 		setPosition: function() {
 			var config = this.model.get("_hotspotMenu");
 
-			if (!config) return;
-
-			this.$el.css({
-				top: (config ? config._top : 0) + "%",
-				left: (config ? config._left : 0) + "%",
-			});
+			if (config) {
+				this.$el.css({ top: config._top + "%", left: config._left + "%" });
+			}
 		},
 
 		onClick: function() {
