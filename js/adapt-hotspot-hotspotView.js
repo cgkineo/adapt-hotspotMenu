@@ -5,8 +5,8 @@ define([
 ], function(Adapt, MenuView, HotspotItemView) {
 
     var HotspotView = MenuView.extend({
-        preRender: function() {
 
+        preRender: function() {
             this.model.getChildren().each(function(item) {
                 if(item.get('_isAvailable')) {
                     var assessment = _.find(item.getChildren().toJSON(), function(it) { return typeof it._assessment !== 'undefined'; } );
@@ -32,20 +32,22 @@ define([
                 }
             });
 
-            this.model.set({_areChildrenReady: false});
+            /*
+            * stop Adapt.Model from setting _isReady on the model as soon as child models are ready
+            * instead, we'll handle doing that so that we can make it wait for any menu images to load
+            */
+            this.model.stopListening(Adapt[this.model._children], "change:_isReady");
+            this.model.set('_areChildrenReady', false);
+            this.listenTo(Adapt[this.model._children], "change:_isReady", this.checkReadyStatusOfChildren);
             this.listenToOnce(this.model, 'change:_areChildrenReady', this.onChildrenReady);
 
-            this.model.checkReadyStatus = function () {
-                // Filter children based upon whether they are available
-                var availableChildren = new Backbone.Collection(this.getChildren().where({_isAvailable: true}));
-                // Check if any return _isReady:false
-                // If not - set this model to _isReady: true
-                if (availableChildren.findWhere({_isReady: false})) return;
-
-                this.set({_areChildrenReady: true});
-            };
-
             MenuView.prototype.preRender.call(this);
+        },
+
+        checkReadyStatusOfChildren: function() {
+            if (this.model.getAvailableChildren().findWhere({_isReady: false})) return;
+
+            this.model.set('_areChildrenReady', true);
         },
 
         onChildrenReady: function() {
