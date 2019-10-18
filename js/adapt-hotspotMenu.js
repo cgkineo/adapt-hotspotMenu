@@ -7,7 +7,7 @@ define([
   var HotspotMenuView = MenuView.extend({
 
     className: function() {
-      return MenuView.prototype.className.call(this) + " hotspot-menu";
+      return MenuView.prototype.className.call(this) + " hotspotMenu";
     },
 
     postRender: function() {
@@ -24,7 +24,7 @@ define([
 
     setUpItems: function() {
       var items = this.model.getAvailableChildModels();
-      var $items = this.$(".hotspot-menu-item-container");
+      var $items = this.$(".js-children");
 
       for (var i = 0, j = items.length; i < j; i++) {
         $items.append(new HotspotMenuItemView({ model: items[i] }).$el);

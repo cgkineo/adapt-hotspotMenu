@@ -1,11 +1,23 @@
-{{#if displayTitle}}
-<div class="hotspot-menu-item-title">{{{compile displayTitle}}}</div>
-{{/if}}
+<div class="menu-item__inner hotspotMenu-item__inner">
 
-{{#if duration}}
-<div class="hotspot-menu-item-duration">{{{_globals._menu._hotspotMenu.durationLabel}}}{{{duration}}}</div>
-{{/if}}
+  {{#if displayTitle}}
+  <div class="menu-item__title hotspotMenu-item__title">
+    <div class="menu-item__title-inner hotspotMenu-item__title-inner">
+      {{{compile displayTitle}}}
+    </div>
+  </div>
+  {{/if}}
 
-<div class="hotspot-menu-item-progress">
-  <div class="hotspot-menu-item-progress-inner"></div>
+  {{#if duration}}
+  <div class="menu-item__duration hotspotMenu-item__duration">
+    <div class="menu-item__duration-inner hotspotMenu-item__duration-inner">
+      {{#if _globals._menu._hotspotMenu.durationLabel}}{{{_globals._menu._hotspotMenu.durationLabel}}}{{/if}}{{{duration}}}
+    </div>
+  </div>
+  {{/if}}
+
+  <div class="menu-item__progress hotspotMenu-item__progress">
+    <div class="menu-item__progress-inner hotspotMenu-item__progress-inner"></div>
+  </div>
+
 </div>

@@ -5,14 +5,14 @@ define([ "core/js/views/adaptView", "core/js/adapt" ], function(AdaptView, Adapt
     tagName: "button",
 
     className: function() {
-      var classes = "hotspot-menu-item";
+      var classes = "hotspotMenu-item";
       var modelClasses = this.model.get("_classes");
 
       if (modelClasses) classes += " " + modelClasses;
-      if (this.isVisited()) classes += " visited";
-      if (this.model.get("_isOptional")) classes += " optional";
-      if (this.model.get("_isComplete")) classes += " completed";
-      if (this.model.get("_isLocked")) classes += " locked";
+      if (this.isVisited()) classes += " is-visited";
+      if (this.model.get("_isOptional")) classes += " is-optional";
+      if (this.model.get("_isComplete")) classes += " is-complete";
+      if (this.model.get("_isLocked")) classes += " is-locked";
 
       return classes;
     },

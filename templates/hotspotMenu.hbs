@@ -1,15 +1,31 @@
-<div class="hotspot-menu-header">
+<div class="menu__inner hotspotMenu__inner">
 
-  {{#if displayTitle}}
-  <div class="hotspot-menu-title">{{{compile displayTitle}}}</div>
-  {{/if}}
+  <div class="menu__header hotspotMenu__header">
+    <div class="menu__header-inner hotspotMenu__header-inner">
 
-  {{#if body}}
-  <div class="hotspot-menu-body">{{{compile body}}}</div>
-  {{/if}}
+      {{#if displayTitle}}
+      <div class="menu__title hotspotMenu__title">
+        <div class="menu__title-inner hotspotMenu__title-inner">
+          {{{compile displayTitle}}}
+        </div>
+      </div>
+      {{/if}}
 
-</div>
+      {{#if body}}
+      <div class="menu__body hotspotMenu__body">
+        <div class="menu__body-inner hotspotMenu__body-inner">
+          {{{compile body}}}
+        </div>
+      </div>
+      {{/if}}
 
-<div class="hotspot-menu-item-container">
-  {{!-- hotspots rendered here --}}
+    </div>
+  </div>
+
+  <div class="menu__item-container hotspotMenu__item-container">
+    <div class="menu__item-container-inner hotspotMenu__item-container-inner js-children">
+      {{!-- hotspots rendered here --}}
+    </div>
+  </div>
+
 </div>
