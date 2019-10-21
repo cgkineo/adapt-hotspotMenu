@@ -5,7 +5,7 @@ define([ "core/js/views/adaptView", "core/js/adapt" ], function(AdaptView, Adapt
     tagName: "button",
 
     className: function() {
-      var classes = "hotspotMenu-item";
+      var classes = "hotspotmenu-item";
       var modelClasses = this.model.get("_classes");
 
       if (modelClasses) classes += " " + modelClasses;

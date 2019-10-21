@@ -7,7 +7,7 @@ define([
   var HotspotMenuView = MenuView.extend({
 
     className: function() {
-      return MenuView.prototype.className.call(this) + " hotspotMenu";
+      return MenuView.prototype.className.call(this) + " hotspotmenu";
     },
 
     postRender: function() {
