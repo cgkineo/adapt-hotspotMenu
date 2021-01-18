@@ -2,7 +2,7 @@
     "name": "adapt-hotspot-menu",
     "repository": "git://github.com/cgkineo/adapt-hotspot-menu",
     "framework": "^2.0.0",
-    "version": "2.0.0",
+    "version": "2.0.13",
     "homepage": "https://github.com/cgkineo/adapt-hotspot-menu",
     "issues": "https://github.com/cgkineo/adapt-hotspot-menu/issues/",
     "displayName": "Hotspot Menu",

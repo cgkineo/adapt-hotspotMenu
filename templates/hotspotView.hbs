@@ -1,25 +1,19 @@
-<div class="menu-container">
-	<div class='menu-container-inner box-menu-inner clearfix'>
+<div class="hotspot-menu-container" {{#if _hotSpotMenu._fullWidthBackground}}style="background-image: url({{_hotSpotMenu._hotSpotMenuGraphic.src}});"{{/if}}>
+	<div class='hotspot-menu-container-inner hotspot-menu-inner clearfix'>
 		{{#if title}}
-		<div class="menu-title">
-			<h1 class="menu-title-inner">
-				{{{title}}}
-			</h1>
-		</div>
+		<div class="hotspot-menu-title">{{{title}}}</div>
 		{{/if}}
 		{{#if body}}
-		<div class="menu-body">
-			<div class="menu-body-inner">
+		<div class="hotspot-menu-body">
+			<div class="hotspot-menu-body-inner">
 				{{{body}}}
 			</div>
 		</div>
 		{{/if}}
 		<div class="hotspot-container">
 			<div class="hotspot-container-inner">
-				<img class="hotspot-container-image" src="{{_hotspotMenuGraphic.src}}" alt="{{_hotspotMenuGraphic.alt}}" />
-				<div class="hotspot-items clearfix">
-					
-				</div>
+				<img class="hotspot-container-image{{#if _hotSpotMenu._fullWidthBackground}} is-full-bg{{/if}}" src="{{_hotSpotMenu._hotSpotMenuGraphic.src}}" alt="{{_hotSpotMenu._hotSpotMenuGraphic.alt}}" />
+				<div class="hotspot-items clearfix"></div>
 			</div>
 		</div>
 	</div>

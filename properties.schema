@@ -1,0 +1,150 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "$ref": "http://localhost/plugins/content/contentobject/model.schema",
+  "globals": {
+    "ariaRegion": {
+      "type": "string",
+      "required": true,
+      "default": "Menu",
+      "inputType": "Text",
+      "validators": [],
+      "translatable": true
+    },
+    "durationLabel": {
+      "type": "string",
+      "required": true,
+      "default": "Duration:",
+      "inputType": "Text",
+      "validators": [],
+      "translatable": true
+    },
+    "menuItem": {
+      "type": "string",
+      "required": true,
+      "default": "Menu item.",
+      "inputType": "Text",
+      "validators": [],
+      "translatable": true
+    },
+    "menuEnd": {
+      "type": "string",
+      "required": true,
+      "default": "You have reached the end of the menu.",
+      "inputType": "Text",
+      "validators": [],
+      "translatable": true
+    }
+  },
+  "properties": {
+    "pluginLocations": {
+      "type":"object",
+      "required":true,
+      "properties":{
+        "course": {
+          "type":"object",
+          "properties": {
+            "_hotSpotMenu": { 
+              "type": "object",
+              "title": "Hotspot Menu",
+              "required": false,
+              "properties": {
+                "_hotSpotMenuGraphic": {
+                  "type": "object",
+                  "required": false,
+                  "title": "Hotspot background image",
+                  "properties" : {
+                    "alt": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "title": "Alt text for background image",
+                      "inputType": "Text",
+                      "help": ""
+                    },
+                    "src": {
+                      "type": "string",
+                      "required": false,
+                      "default": "",
+                      "title": "Image for background",
+                      "inputType": "Asset:image",
+                      "help": ""
+                    }
+                  }
+                },
+                "_fullWidthBackground": {
+                  "type": "boolean",
+                  "default": false,
+                  "required": false,
+                  "title": "Is full-width background",
+                  "inputType": "Checkbox",
+                  "help": "This will set whether the hotspot image is full-width background"
+                }
+              }
+            }
+          }
+        },
+        "contentobject": {
+          "type":"object",
+          "properties": {
+            "_hotSpotMenuItem": { 
+              "type": "object",
+              "title": "Hotspot Menu Item",
+              "required": false,
+              "properties": {
+                "_position": {
+                  "type": "object",
+                  "required": false,
+                  "title": "",
+                  "properties" : {
+                    "_left": {
+                      "type": "number",
+                      "required": false,
+                      "default": "",
+                      "title": "Pin Position - Left",
+                      "inputType": "Number",
+                      "validators": ["number"],
+                      "help": "Left position of pin"
+                    },
+                    "_top": {
+                      "type": "number",
+                      "required": false,
+                      "default": "",
+                      "title": "Pin Position - Top",
+                      "inputType": "Number",
+                      "validators": ["number"],
+                      "help": "Top position of pin"
+                    }
+                  }
+                },
+                "_popupPosition": {
+                  "type": "string",
+                  "default": "default",
+                  "title": "Popup position",
+                  "inputType": {
+                    "type": "Select",
+                    "options": [
+                      "",
+                      "left",
+                      "right"
+                    ]
+                  },
+                  "help": "This can be useful to set the position of the popup next to the hotspot pin"
+                },
+                "_animatedPopup": {
+                  "type": "boolean",
+                  "required": false,
+                  "default": false,
+                  "title": "Animated popup",
+                  "inputType": "Checkbox",
+                  "help": "This will set whether the popup will have transitions or animations"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
