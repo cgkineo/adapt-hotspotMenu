@@ -10,7 +10,7 @@ A menu with absolutely-positioned buttons.
 * Specify a background image for the menu by adding the following to `course.json`:
 ```json
 "_hotspotMenu": {
-	"_backgroundSrc": ""
+  "_backgroundSrc": ""
 }
 ```
 * With [Adapt CLI](https://github.com/adaptlearning/adapt-cli) installed, run `adapt install hotspotMenu`. Alternatively, download the ZIP and extract into the src > menu directory.
@@ -32,3 +32,11 @@ Attribute | Type | Description | Default
 --------- | ---- | ----------- | -------
 `_top` | Number | Vertical position as a percentage | 0
 `_left` | Number | Horizontal position as a percentage | 0
+
+----------------------------
+**Version number:**  4.0.0<br/>
+**Framework versions:**  5+<br/>
+**Author / maintainer:** Kineo<br/>
+**Accessibility support:** WAI AA<br/>
+**RTL support:** Yes<br/>
+**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (ESR + latest version), Edge, IE11, Safari 12+13 for macOS/iOS/iPadOS, Opera<br/>

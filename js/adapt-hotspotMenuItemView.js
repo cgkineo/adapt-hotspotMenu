@@ -1,57 +1,41 @@
-define([ "core/js/views/adaptView", "core/js/adapt" ], function(AdaptView, Adapt) {
+define([
+  'core/js/views/menuItemView'
+], function(MenuItemView) {
 
-  var HotspotMenuItemView = AdaptView.extend({
-
-    tagName: "button",
-
-    className: function() {
-      var classes = "hotspotmenu-item";
-      var modelClasses = this.model.get("_classes");
-
-      if (modelClasses) classes += " " + modelClasses;
-      if (this.isVisited()) classes += " is-visited";
-      if (this.model.get("_isOptional")) classes += " is-optional";
-      if (this.model.get("_isComplete")) classes += " is-complete";
-      if (this.model.get("_isLocked")) classes += " is-locked";
-
-      return classes;
-    },
+  var HotspotMenuItemView = MenuItemView.extend({
 
     events: {
-      "click": "onClick"
+      'click .js-btn-click' : 'onClickMenuItemButton'
     },
 
     postRender: function() {
-      this.setPosition();
-      this.setReadyStatus();
+      this.$el.imageready(function() {
+        this.setPosition();
+        this.setReadyStatus();
+      }.bind(this));
     },
 
     setPosition: function() {
-      var config = this.model.get("_hotspotMenu");
+      var config = this.model.get('_hotspotMenu');
 
       if (config) {
-        this.$el.css({ top: config._top + "%", left: config._left + "%" });
+        this.$el.css({
+          top: config._top + '%',
+          left: config._left + '%'
+        });
       }
     },
 
-    onClick: function() {
-      if (!this.model.get("_isLocked")) {
-        Adapt.navigateToElement(this.model.get("_id"));
-      }
-    },
-
-    isVisited: function() {
-      if (this.model.get("_isVisited")) return true;
-
-      var components = this.model.findDescendantModels("components");
-
-      return components.some(function(component) {
-        return component.get("_isComplete") && component.get("_isAvailable") &&
-          !component.get("_isOptional");
-      });
+    onClickMenuItemButton: function(event) {
+      if (event && event.preventDefault) event.preventDefault();
+      if (this.model.get('_isLocked')) return;
+      Backbone.history.navigate('#/id/' + this.model.get('_id'), {trigger: true});
     }
 
-  }, { template: "hotspotMenuItem", type: "menu" });
+  }, {
+    className: 'hotspotmenu-item',
+    template: 'hotspotMenuItem'
+  });
 
   return HotspotMenuItemView;
 

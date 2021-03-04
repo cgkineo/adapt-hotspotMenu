@@ -1,28 +1,74 @@
 .hotspotmenu-item {
-  position: absolute;
+  width: 100%;
+  overflow: inherit !important;
 
-  &__progress {
-    height: 1.25rem;
-    width: 1.25rem;
-    margin: 0.5rem auto;
-    border-radius: 50%;
-    border: 0.125rem solid @black;
+  @media (min-width: @device-width-medium) {
+    position: absolute;
+    .transform(translate(-50%,-50%));
+    width: auto;
   }
 
-  &__progress-inner {
-    width: 0%;
-    height: 100%;
-
-    .is-visited & {
-      width: 50%;
-      border-top-left-radius: 50%;
-      border-bottom-left-radius: 50%;
-      background-color: @black;
+  &__inner {
+    @media (min-width: @device-width-medium) {
+      min-width: 20rem;
+      max-width: 20rem;
     }
+  }
+}
 
-    .is-complete & {
-      width: 100%;
-      border-radius: 50%;
+// THEME
+// --------------------------------------------------
+.hotspotmenu-item {
+  &__inner {
+    margin-bottom: @item-margin;
+    padding: @item-padding;
+    background-color: @menu-item;
+    color: @menu-item-inverted;
+
+    @media (min-width: @device-width-medium) {
+      margin-bottom: 0;
+      border: 1px solid @menu-item-border-color;
+      border-radius: @item-border-radius;
     }
+  }
+
+  &__title {
+    margin-bottom: @menu-item-title-margin;
+    .menu-item-title;
+  }
+
+  &__body {
+    margin-bottom: @menu-item-body-margin;
+    .menu-item-body;
+  }
+
+  &__body a {
+    .link-text;
+  }
+
+  &__duration {
+    margin-bottom: @menu-item-duration-margin;
+    .menu-item-body;
+  }
+
+  &__progress {
+    margin-bottom: @menu-item-progress-margin;
+  }
+
+  &__button {
+    background-color: @menu-item-btn-color;
+    color: @menu-item-btn-color-inverted;
+
+    .no-touch &:not(.is-disabled):not(.is-locked):hover {
+      background-color: @menu-item-btn-color-hover;
+      color: @menu-item-btn-color-inverted-hover;
+      .transition(background-color @duration ease-in, color @duration ease-in;);
+    }
+  }
+
+  &__button.is-locked,
+  &__button.is-disabled {
+    background-color: @disabled;
+    color: @disabled-inverted;
   }
 }

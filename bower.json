@@ -1,10 +1,11 @@
 {
   "name": "adapt-hotspotMenu",
-  "version": "3.0.0",
-  "framework": ">=2.2",
-  "displayName": "Hotspot Menu",
+  "version": "4.0.0",
+  "framework": ">=5",
+  "homepage": "https://github.com/cgkineo/adapt-hotspotMenu",
+  "issues": "https://github.com/cgkineo/adapt-hotspotMenu/issues/new",
   "menu": "hotspotMenu",
-  "targetAttribute": "_hotspotMenu",
+  "displayName": "Hotspot Menu",
   "description": "A menu with absolutely-positioned buttons",
   "main": "/js/adapt-hotspotMenu.js",
   "keywords": [
@@ -12,5 +13,5 @@
     "adapt-menu"
   ],
   "license": "GPL-3.0",
-  "homepage": "https://github.com/cgkineo/adapt-hotspotMenu"
+  "targetAttribute": "_hotspotMenu"
 }

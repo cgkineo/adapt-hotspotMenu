@@ -1,12 +1,29 @@
+{{import_globals}}
+
 <div class="menu__inner hotspotmenu__inner">
 
+  {{#any displayTitle subtitle body instruction}}
   <div class="menu__header hotspotmenu__header">
     <div class="menu__header-inner hotspotmenu__header-inner">
 
       {{#if displayTitle}}
       <div class="menu__title hotspotmenu__title">
-        <div class="menu__title-inner hotspotmenu__title-inner">
+
+        {{#unless _disableAccessibleState}}
+        <div class="js-heading"></div>
+        {{/unless}}
+
+        <div class="menu__title-inner hotspotmenu__title-inner" {{#unless _disableAccessibleState}}aria-hidden="true"{{/unless}}>
           {{{compile displayTitle}}}
+        </div>
+
+      </div>
+      {{/if}}
+
+      {{#if subtitle}}
+      <div class="menu__subtitle hotspotmenu__subtitle">
+        <div class="menu__subtitle-inner hotspotmenu__subtitle-inner">
+          {{{compile subtitle}}}
         </div>
       </div>
       {{/if}}
@@ -19,12 +36,25 @@
       </div>
       {{/if}}
 
+      {{#if instruction}}
+      <div class="menu__instruction hotspotmenu__instruction">
+        <div class="menu__instruction-inner hotspotmenu__instruction-inner">
+          {{{compile instruction}}}
+        </div>
+      </div>
+      {{/if}}
+
     </div>
   </div>
+  {{/any}}
 
-  <div class="menu__item-container hotspotmenu__item-container">
-    <div class="menu__item-container-inner hotspotmenu__item-container-inner js-children">
-      {{!-- hotspots rendered here --}}
+  <div class="menu__image-container hotspotmenu__image-container">
+    <img class="menu__image hotspotmenu__image" src="{{_hotspotMenu._backgroundSrc}}" />
+
+    <div class="menu__item-container hotspotmenu__item-container">
+      <div class="menu__item-container-inner hotspotmenu__item-container-inner js-children">
+        {{!-- hotspots rendered here --}}
+      </div>
     </div>
   </div>
 

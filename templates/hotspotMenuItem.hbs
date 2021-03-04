@@ -1,9 +1,21 @@
+{{import_globals}}
+
 <div class="menu-item__inner hotspotmenu-item__inner">
 
   {{#if displayTitle}}
   <div class="menu-item__title hotspotmenu-item__title">
-    <div class="menu-item__title-inner hotspotmenu-item__title-inner">
+    <div class="js-heading" data-a11y-heading-type="menuItem"></div>
+
+    <div class="menu-item__title-inner hotspotmenu-item__title-inner" aria-hidden="true">
       {{{compile displayTitle}}}
+    </div>
+  </div>
+  {{/if}}
+
+  {{#if body}}
+  <div class="menu-item__body hotspotmenu-item__body">
+    <div class="menu-item__body-inner hotspotmenu-item__body-inner">
+      {{{compile body}}}
     </div>
   </div>
   {{/if}}
@@ -11,13 +23,19 @@
   {{#if duration}}
   <div class="menu-item__duration hotspotmenu-item__duration">
     <div class="menu-item__duration-inner hotspotmenu-item__duration-inner">
-      {{#if _globals._menu._hotspotMenu.durationLabel}}{{{_globals._menu._hotspotMenu.durationLabel}}}{{/if}}{{{duration}}}
+      {{#if _globals._menu._hotspotMenu.durationLabel}}{{{_globals._menu._hotspotMenu.durationLabel}}} {{/if}}{{{duration}}}
     </div>
   </div>
   {{/if}}
 
-  <div class="menu-item__progress hotspotmenu-item__progress">
-    <div class="menu-item__progress-inner hotspotmenu-item__progress-inner"></div>
+  <div class="menu-item__progress hotspotmenu-item__progress js-menu-item-progress">
+    {{!-- Menu item progress bar will render in here --}}
+  </div>
+
+  <div class="menu-item__button-container hotspotmenu-item__button-container">
+    <button class="btn-text menu-item__button hotspotmenu-item__button js-btn-click{{#if _isVisited}} is-visited{{/if}}{{#if _isLocked}} is-locked{{/if}}" aria-label="{{#if _isVisited}}{{_globals._accessibility._ariaLabels.visited}}{{/if}} {{linkText}}"{{#if _isLocked}} disabled="disabled"{{/if}}>
+      {{{linkText}}}
+    </button>
   </div>
 
 </div>
