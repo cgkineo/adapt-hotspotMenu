@@ -1,4 +1,10 @@
-"_hotspotMenu": {
-	"_top": 50,
-	"_left": 50
-}
+    //Add to course.json
+    "_hotspotMenu": {
+        "_backgroundSrc": ""
+    },
+
+    //Add to contentObjects.json
+    "_hotspotMenu": {
+        "_top": 50,
+        "_left": 50
+    },

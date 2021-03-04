@@ -1,73 +1,48 @@
-.hotspot-menu {
-	min-height: calc(100vh ~"-" @navigation-padding * 2 + @icon-size);
-	color: @menu-item-text-color;
-	.menu& {
-		background: @menu-item-color center/cover no-repeat;
-	}
+.hotspotmenu {
+  // min-height: calc(100vh - @navigation-height);
+  .l-container-responsive(@max-width);
+
+  &__header-inner {
+    .l-container-responsive(@device-width-large);
+  }
+
+  &__image-container {
+    position: relative;
+  }
 }
 
-.hotspot-menu-header {
-	max-width: 900px;
-	margin: 0 auto;
-	padding: @menu-block-padding-top @menu-block-padding-right @menu-block-padding-bottom @menu-block-padding-left;
-}
+// THEME
+// --------------------------------------------------
+.hotspotmenu {
+  .l-container-padding(@menu-padding-ver, @menu-padding-hoz);
 
-.hotspot-menu-item-container {
-	position: relative;
-	min-height: 500px;
-}
+  &__header-inner {
+    .l-container-padding(@menu-header-padding-ver, @menu-header-padding-hoz);
+  }
 
-.hotspot-menu-title {
-	.menu-title;
-	margin-bottom: @menu-block-title-margin-bottom;
-}
+  &__title {
+    margin-bottom: @menu-title-margin;
+    .menu-title;
+    color: @heading-color;
+  }
 
-.hotspot-menu-item-body {
-	margin-bottom: @menu-block-body-margin-bottom;
-}
+  &__subtitle {
+    margin-bottom: @menu-subtitle-margin;
+    .menu-subtitle;
+  }
 
-button.hotspot-menu-item {
-	position: absolute;
-	max-width: 200px;
-	padding: 5px;
-	font-size: @body-text-font-size;
-	transform: translate(-50%, -50%);
-	&.locked,
-	html:not(.os-ios):not(.os-android) &.locked:hover {
-		background-color: @disabled-color;
-		color: @disabled-color-inverted;
-		cursor: default;
-	}
-}
+  &__body {
+    margin-bottom: @menu-body-margin;
+    .menu-body;
+  }
 
-.hotspot-menu-item-title {
-	font-weight: @font-weight-bold;
-}
+  &__instruction {
+    margin-bottom: @menu-instruction-margin;
+    .menu-instruction;
+  }
 
-.hotspot-menu-item-progress {
-	position: relative;
-	width: 18px;
-	height: 18px;
-	border: 3px @menu-item-progress-fill-color solid;
-	margin: 5px auto 0;
-}
-
-.hotspot-menu-item-progress-inner {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	height: 14px;
-	margin: -7px 0 0 -7px;
-	background-color: @menu-item-progress-fill-color;
-	.visited & {
-		width: 7px;
-	}
-	.completed & {
-		width: 14px;
-	}
-}
-
-.location-menu.os-ios #a11y-focusguard,
-.location-menu.os-android #a11y-focusguard {
-	display: none;
+  &__body a,
+  &__instruction a {
+    .link-text;
+  }
 }

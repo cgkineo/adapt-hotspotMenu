@@ -1,58 +1,42 @@
-define([ "core/js/views/adaptView", "core/js/adapt" ], function(AdaptView, Adapt) {
+define([
+  'core/js/views/menuItemView'
+], function(MenuItemView) {
 
-	var HotspotMenuItemView = AdaptView.extend({
+  var HotspotMenuItemView = MenuItemView.extend({
 
-		tagName: "button",
+    events: {
+      'click .js-btn-click' : 'onClickMenuItemButton'
+    },
 
-		className: function() {
-			var classes = "hotspot-menu-item";
-			var modelClasses = this.model.get("_classes");
+    postRender: function() {
+      this.$el.imageready(function() {
+        this.setPosition();
+        this.setReadyStatus();
+      }.bind(this));
+    },
 
-			if (modelClasses) classes += " " + modelClasses;
-			if (this.isVisited()) classes += " visited";
-			if (this.model.get("_isOptional")) classes += " optional";
-			if (this.model.get("_isComplete")) classes += " completed";
-			if (this.model.get("_isLocked")) classes += " locked";
+    setPosition: function() {
+      var config = this.model.get('_hotspotMenu');
 
-			return classes;
-		},
+      if (config) {
+        this.$el.css({
+          top: config._top + '%',
+          left: config._left + '%'
+        });
+      }
+    },
 
-		events: {
-			"click": "onClick"
-		},
+    onClickMenuItemButton: function(event) {
+      if (event && event.preventDefault) event.preventDefault();
+      if (this.model.get('_isLocked')) return;
+      Backbone.history.navigate('#/id/' + this.model.get('_id'), {trigger: true});
+    }
 
-		postRender: function() {
-			this.setPosition();
-			this.setReadyStatus();
-		},
+  }, {
+    className: 'hotspotmenu-item',
+    template: 'hotspotMenuItem'
+  });
 
-		setPosition: function() {
-			var config = this.model.get("_hotspotMenu");
-
-			if (config) {
-				this.$el.css({ top: config._top + "%", left: config._left + "%" });
-			}
-		},
-
-		onClick: function() {
-			if (!this.model.get("_isLocked")) {
-				Adapt.navigateToElement(this.model.get("_id"));
-			}
-		},
-
-		isVisited: function() {
-			if (this.model.get("_isVisited")) return true;
-
-			var components = this.model.findDescendantModels("components");
-
-			return components.some(function(component) {
-				return component.get("_isComplete") && component.get("_isAvailable") &&
-					!component.get("_isOptional");
-			});
-		}
-
-	}, { template: "hotspotMenuItem", type: "menu" });
-
-	return HotspotMenuItemView;
+  return HotspotMenuItemView;
 
 });

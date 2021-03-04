@@ -6,7 +6,7 @@
   "globals": {
     "durationLabel": {
       "type": "string",
-      "default": "Duration: ",
+      "default": "Duration:",
       "title": "Duration label",
       "inputType": "Text",
       "translatable": true
